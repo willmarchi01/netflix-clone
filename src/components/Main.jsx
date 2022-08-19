@@ -13,6 +13,13 @@ const Main = () => {
         })
     }, [])
     
+    const truncateString = (str, num) => {
+        if(str?.length > num) {
+            return str.slice(0, num) + '...'
+        } else {
+            return str;
+        }
+    };
 
     return (
     <div className='w-full h-[550px] text-white'>
@@ -26,6 +33,7 @@ const Main = () => {
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4 rounded-md hover:text-green-600 hover:border-green-600 hover:ease-in duration-200'>Watch Later</button>
             </div>
             <p className='text-gray-400 text-sm pt-5'>Released: {movie?.release_date}</p>
+            <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200 pt-5 text-justify'>{truncateString(movie?.overview, 150)}</p>
         </div>
         
         </div>
